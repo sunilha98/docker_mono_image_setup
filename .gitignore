@@ -1,0 +1,81 @@
+######################################
+# Java & Build Artifacts
+######################################
+*.class
+*.log
+logs/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+**/target/
+pom.xml.tag
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+**/build/
+build/
+
+######################################
+# Eclipse / STS
+######################################
+.classpath
+.project
+.settings/
+**/.classpath
+**/.project
+**/.settings/
+
+######################################
+# IntelliJ
+######################################
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+**/.idea/
+**/*.iws
+**/*.iml
+**/*.ipr
+**/out/
+
+######################################
+# VS Code
+######################################
+.vscode/
+**/.vscode/
+
+######################################
+# OS / Misc
+######################################
+.metadata
+bin/
+**/bin/
+tmp/
+**/tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.DS_Store
+Thumbs.db
+
+######################################
+# Extra
+######################################
+# Ignore generated reports or cache dirs
+*.orig
+*.rej
+*.patch
