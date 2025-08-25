@@ -208,6 +208,7 @@ All services include health endpoints:
 2. **Database connection issues**: Check if PostgreSQL container is running
 3. **Service registration problems**: Verify Eureka server is accessible
 4. **Build failures**: Ensure Maven and Java 17 are properly installed
+5. **Frontend issues**: Ensure Node.js and npm are installed for local frontend development
 
 ### Debug Mode
 Enable debug logging by updating application.yml in respective services:
