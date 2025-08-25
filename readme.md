@@ -146,7 +146,7 @@ Access the Eureka dashboard at http://localhost:8761 to see all registered servi
 ### Database Access
 ```bash
 # Connect to PostgreSQL container
-docker exec -it rma-postgres psql -U postgres
+docker exec -it rma-postgres psql -U postgres -d postgres
 
 # List databases
 \l
@@ -154,6 +154,28 @@ docker exec -it rma-postgres psql -U postgres
 # Connect to specific schema
 \c postgres
 \dn
+
+# Switch to a schema (example user management schema): 
+SET search_path TO usr_mgmt_db;
+
+# List tables: 
+\dt
+
+# View data from a table (example users table): 
+SELECT * FROM users;
+```
+
+### Sample Data Insertion
+To insert sample user data into the users table:
+
+```sql
+INSERT INTO users (username, email, password, first_name, last_name, role, is_active, created_by, updated_by)
+VALUES 
+    ('admin', 'admin@resourcemanagement.com', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYrWswsE7J0kR8uW7W1dT6Kj7X1/2O', 'System', 'Administrator', 'SUPER_ADMIN', true, 'system', 'system'),
+    ('pm_user', 'pm@resourcemanagement.com', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYrWswsE7J0kR8uW7W1dT6Kj7X1/2O', 'Project', 'Manager', 'PROJECT_MANAGER', true, 'system', 'system'),
+    ('resource_user', 'resource@resourcemanagement.com', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYrWswsE7J0kR8uW7W1dT6Kj7X1/2O', 'John', 'Doe', 'RMT', true, 'system', 'system'),
+    ('finance_user', 'finance@resourcemanagement.com', '$2a$10$N9qo8uLOickgx2ZMRZoMy.MrYrWswsE7J0kR8uW7W1dT6Kj7X1/2O', 'Jane', 'Smith', 'FINANCE_CONTROLLER', true, 'system', 'system')
+ON CONFLICT (username) DO NOTHING;
 ```
 
 ### Logs and Debugging
