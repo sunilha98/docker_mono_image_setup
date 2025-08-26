@@ -11,9 +11,9 @@ spring:
 #    clean-disabled: true
   
   datasource:
-    url: jdbc:postgresql://rma-postgres:5432/postgres
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://rms.postgres.database.azure.com:5432/master_service_db
+    username: rmsadmin
+    password: vfr4VFR$
     driver-class-name: org.postgresql.Driver
   
   jpa:
@@ -24,7 +24,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-        default_schema: master_service_db
+#        default_schema: master_service_db
   
   jackson:
     default-property-inclusion: NON_NULL
